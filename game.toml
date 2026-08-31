@@ -1,0 +1,53 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Driver"
+id = "SLUS-00842"
+players = 1
+exe = "disc/SLUS_008.42"
+disc = ""
+load_address = "0x00010000"
+entry_pc = "0x000738F8"
+text_size = "0x00087000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "disc1.bin"
+cue_name = "disc1.cue"
+boot_exe = "SLUS_008.42"
+known_sizes = [747030480]
+known_md5 = [
+  "b0e1270a6c916e1c6be860fc46b76863",
+]
+known_sha1 = [
+  "3df45bb77b9189258dc513d8b161b73bc0b06d6e",
+]
+known_crc32 = [
+  "6208af86",
+]
+
+[recompiler]
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+window_title = "driver- Recompiled"
+memcard_dir = "saves"
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "a22d15706fa466e340819bc0686b8feba8b3d87033f07031c150c9398c87c468"
