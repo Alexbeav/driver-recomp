@@ -35,6 +35,7 @@ out_dir = "generated"
 strict = true
 
 [runtime]
+overlay_region_floor = "0x10000"
 window_title = "driver- Recompiled"
 memcard_dir = "saves"
 
